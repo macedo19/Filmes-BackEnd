@@ -46,6 +46,7 @@ exports.getByIdFilms = async (req, res, next) => {
     res.status(200).json(film)
 }
 
+//Update Filmes
 exports.updateFilmsSave = async (req, res, next) => {
     const id = req.body.id
     const {title, url, genero, description} = req.body
@@ -59,4 +60,12 @@ exports.updateFilmsSave = async (req, res, next) => {
 
     const updateFilm = await Film.update(data, {where: {id : id}})
     res.status(200).json(updateFilm)
+}
+
+ //Remove filme
+ exports.removeFilms = async(req, res) => {
+     console.log("deu boa")
+    const id = req.body.id
+    const filmedeletar = await Film.destroy({where: {id: id}})
+    res.status(200).json(filmedeletar)
 }
