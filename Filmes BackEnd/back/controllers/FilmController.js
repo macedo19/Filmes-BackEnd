@@ -15,7 +15,6 @@ exports.createFilmsSave = async (req, res) => {
             description
         }
 
-        console.log(data)
         try{
 
             const repost = await Film.create(data)
@@ -31,9 +30,8 @@ exports.createFilmsSave = async (req, res) => {
   
 // Get Filmesss
 exports.getAllFilms = async (req, res, next) => {
-    const filmes = 'Filme'
 
-    const films = await Film.findAll({ raw: true})
+    const films = await Film.find({})
 
     res.status(200).json(films)
 }

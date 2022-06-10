@@ -1,22 +1,44 @@
-const { DataTypes} = require ('sequelize')
+/**
+ * =======================================
+ * SEQUELIZE => MYSQL
+ * ===================================
+ */
 
-const db = require('../db/conn')
+// const { DataTypes} = require ('sequelize')
 
-// Tabela no banco
-const User = db.define('User', {
-    name: {
-        type: DataTypes.STRING,//tipo string
-        require: true//Não aceita valores vazios
-    },
-    email: {
-        type: DataTypes.STRING,//tipo string
-        require: true//Não aceita valores vazios
-    },
-    password: {
-        type: DataTypes.STRING,//tipo string
-        require: true//Não aceita valores vazios
-    },
-})
+// const db = require('../db/conn')
 
-// Exports module
-module.exports = User
+// // Tabela no banco
+// const User = db.define('User', {
+//     name: {
+//         type: DataTypes.STRING,//tipo string
+//         require: true//Não aceita valores vazios
+//     },
+//     email: {
+//         type: DataTypes.STRING,//tipo string
+//         require: true//Não aceita valores vazios
+//     },
+//     password: {
+//         type: DataTypes.STRING,//tipo string
+//         require: true//Não aceita valores vazios
+//     },
+// })
+
+// // Exports module
+// module.exports = User
+
+/**
+ * =======================================
+ * MONGODB => MONGOOSE
+ * ===================================
+ */
+
+ const mongoose = require('mongoose');
+
+ const userSchema = new mongoose.Schema({
+   name: String,
+   email: String,
+   password: String,
+ });
+ 
+ module.exports = mongoose.model('user', userSchema);

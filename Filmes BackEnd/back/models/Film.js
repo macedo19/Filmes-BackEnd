@@ -1,28 +1,46 @@
-const {DataTypes} = require('sequelize')
+/**
+ * =======================================
+ * SEQUELIZE => MYSQL
+ * ===================================
+ */
 
-const db = require('../db/conn')
+// const {DataTypes} = require('sequelize')
 
-const Film = db.define('Film', {
-    title: {
-        type: DataTypes.STRING,
-        allowNull: false, // Não aceita valores Null
-        require: true
-    },
-    url: {
-        type: DataTypes.STRING,
-        allowNull: false, // Não aceita valores Null
-        require: true
-    },
-    genero: {
-        type: DataTypes.STRING,
-        allowNull: false, // Não aceita valores Null
-        require: true
-    },
-    description: {
-        type: DataTypes.STRING,
-        allowNull: false, // Não aceita valores Null
-        require: true
-    }
-})
+// const db = require('../db/conn')
 
-module.exports = Film;
+// const Film = db.define('Film', {
+//     title: {
+//         type: DataTypes.STRING,
+//         allowNull: false, // Não aceita valores Null
+//         require: true
+//     },
+//     url: {
+//         type: DataTypes.STRING,
+//         allowNull: false, // Não aceita valores Null
+//         require: true
+//     },
+//     genero: {
+//         type: DataTypes.STRING,
+//         allowNull: false, // Não aceita valores Null
+//         require: true
+//     },
+//     description: {
+//         type: DataTypes.STRING,
+//         allowNull: false, // Não aceita valores Null
+//         require: true
+//     }
+// })
+
+// module.exports = Film;
+
+
+/**
+ * =======================================
+ * MONGOOSE
+ * ===================================
+ */
+
+const mongoose = require ('mongoose')
+
+const filmsSchema = require('../schema/filmsSchema')
+module.exports = mongoose.model('filmes', filmsSchema)
